@@ -63,9 +63,9 @@ const Projects = () => {
                                 <motion.div
                                     key={project.id} 
                                     className="relative"
-                                    initial={{ opacity: 0, y: (150 * (projectIndex + 30)), x: (150 * (projectIndex + 40))}}
+                                    initial={{ opacity: 0, y: (150 * (projectIndex + 75)), x: (150 * (projectIndex + 50))}}
                                     animate={{ opacity: 1, y: 0, x: 0 }}
-                                    transition={{ delay: 0.001 * (projectIndex + 1), duration: 1.125, type: 'spring', bounce: 0.05 }}
+                                    transition={{ delay: 0.001 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
                                 >
                                     <FiEye size={40} className="absolute top-6 right-6" />
                                     <Image 
