@@ -2,7 +2,6 @@
 import React from 'react'
 import MouseTrail from "@pjsalita/react-mouse-trail";
 import See from '../../pages/see';
-import NavBar from '@/modules/nav/nav-bar';
 
 const Home = () => {
     const config = {
@@ -17,7 +16,6 @@ const Home = () => {
     return (
         <>
             <MouseTrail {...config} />
-            <NavBar />
             <See />
         </>
     )
