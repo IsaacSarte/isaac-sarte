@@ -67,7 +67,7 @@ const See = () => {
                 </motion.div>
             ) : (
                 <>
-                    <NavBar />
+                    <NavBar onHomeIconClick={handleRenderProjects}  />
                     <Projects />
                 </>
 
