@@ -10,7 +10,7 @@ const NavBar = () => {
             initial={{ opacity: 0 , y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: 'spring', bounce: 0.25 }}
-            className="px-12 overflow-hidden fixed w-screen h-[10vh] mx-auto grid grid-cols-3 text-center place-items-center"
+            className="px-12 overflow-hidden fixed w-screen h-[10vh] mx-auto grid grid-cols-3 text-center place-items-center z-50"
         >
             <span className="text-xl">IS</span>
             <HomeIcon className="cursor-pointer hover:scale-125" />

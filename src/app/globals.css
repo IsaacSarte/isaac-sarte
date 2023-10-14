@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
+
 .binocular {
     transition: 0.25s ease-in forwards;
     animation: fill 0.5s ease-in-out forwards 0.5s;
