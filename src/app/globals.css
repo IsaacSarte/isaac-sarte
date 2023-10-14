@@ -46,7 +46,8 @@ body::-webkit-scrollbar{
     }
 }
 
-.binocular path:nth-child(1) {
+.binocular path:nth-child(1),
+.arrow-left-right path:nth-child(1) {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: line-animation 2s ease-in-out forwards infinite;
