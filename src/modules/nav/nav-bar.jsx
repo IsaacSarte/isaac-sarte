@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import HomeIcon from '@/assets/svgs/home.svg';
 
 const NavBar = () => {
   return (
@@ -13,7 +14,7 @@ const NavBar = () => {
             >
                 <span className="text-xl">IS</span>
             </motion.div>
-            <span className="font-semibold text-2xl ml-[6.5rem]">Home</span>
+            <HomeIcon className="ml-[6.5rem] cursor-pointer hover:scale-125" />
             <motion.div
                 initial={{ opacity: 0 , y: -100 }}
                 animate={{ opacity: 1, y: 0 }}

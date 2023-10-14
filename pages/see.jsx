@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { AnimatePresence, motion } from 'framer-motion';
+import Binocular from '@/assets/svgs/binocular.svg'
 
 const See = () => {
   return (
@@ -13,8 +15,8 @@ const See = () => {
             >
                 <span className="text-xl font-semibold">Experiences</span>
             </motion.div>
-            <div className="font-semibold flex flex-col items-center gap-4 cursor-pointer">
-                <span>Binocular Icon</span>
+            <div className="font-semibold flex flex-col items-center gap-4">
+                <Binocular className="cursor-pointer binocular hover:scale-[1.05]" />
                 <span className="text-8xl">Isaac Sarte</span>
                 <div className="flex items-center gap-6 border border-gray-700 rounded-2xl mt-16 px-6 py-4">
                     <FiGithub size={30} color={'#9ca3af'} />
