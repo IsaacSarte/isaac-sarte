@@ -53,9 +53,9 @@ const Projects = () => {
                     ref={scroller}
                     className="flex overflow-hidden text-white w-[400vw] m-0 relative h-screen"
                 >
-                    {projectGroups.map((group, index) => (
+                    {projectGroups.map((group) => (
                         <section
-                            key={index}
+                            key={group.id}
                             ref={projects}
                             className="projects px-12 overflow-hidden w-screen h-full flex items-center justify-between gap-6"
                         >
