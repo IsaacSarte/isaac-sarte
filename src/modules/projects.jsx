@@ -62,20 +62,27 @@ const Projects = () => {
                             {group.map((project, projectIndex) => (
                                 <motion.div
                                     key={project.id} 
-                                    className="relative"
+                                    className="relative group"
                                     initial={{ opacity: 0, y: (150 * (projectIndex + 75)), x: (150 * (projectIndex + 50))}}
                                     animate={{ opacity: 1, y: 0, x: 0 }}
                                     transition={{ delay: 0.001 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
+                                    whileHover={{
+                                        rotate: 15,
+                                        scale: 0.75,
+                                        transition: { duration: 0.5 }
+                                    }}
                                 >
-                                    <FiEye size={40} className="absolute top-6 right-6" />
+                                    <motion.div className="project-info opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out">
+                                        <FiEye size={40} className="absolute top-6 right-6" />
+                                        <span className="absolute bottom-6 ml-4 opacity-75 bg-[#fbfbfb] text-black px-4 py-2 uppercase border border-black rounded-xl">{project.title}</span>
+                                    </motion.div>
                                     <Image 
                                         src={project.image}
                                         alt={project.title}
                                         width={400} 
                                         height={400}
-                                        className="rounded-lg"
+                                        className="rounded-lg hover:rounded-full transition-all ease-in-out duration-[500ms]"
                                     />
-                                    <span className="absolute bottom-6 ml-4 opacity-75 bg-[#fbfbfb] text-black px-4 py-2 uppercase border border-black rounded-xl">{project.title}</span>
                                 </motion.div>
                             ))}
                         </section>
