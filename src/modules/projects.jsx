@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { projectList } from '@/utils/projects/projectList';
 import { FiEye } from 'react-icons/fi';
 import ArrowIcon from '@/assets/svgs/arrowLeftRight.svg';
+import ProjectInfo from '@/components/projects/project-info';
+import cn from 'classnames';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,15 +46,31 @@ const Projects = () => {
         projectGroups.push(projectList.slice(i, i + 4));
     }
 
+    const [projectClicked, setProjectClicked] = useState(false);
     const [showProjectInfo, setShowProjectInfo] = useState(false);
 
     const handleShowProjectInfo = () => {
-        setShowProjectInfo(!showProjectInfo);
+        setProjectClicked(!projectClicked);
+        setTimeout(() => {
+            setShowProjectInfo(!showProjectInfo);
+        }, 500);
     };
 
     return (
         <div className="overflow-hidden">
-            <div className="overflow-hidden relative">
+            {/* all projects */}
+            <motion.div
+                className={cn("overflow-hidden relative", {
+                    'hidden': showProjectInfo
+                })}
+                initial={{
+                    opacity: projectClicked ? 1 : 0,
+                }}
+                animate={{
+                    opacity: projectClicked ? 0 : 1,
+                }}
+                transition={{ duration: 0.5 }}
+            >
                 <div
                     id="projects"
                     ref={scroller}
@@ -67,15 +85,26 @@ const Projects = () => {
                             {group.map((project, projectIndex) => (
                                 <motion.div
                                     key={project.id} 
-                                    className="relative group cursor-pointer"
-                                    initial={{ opacity: 0, y: (150 * (projectIndex + 75)), x: (150 * (projectIndex + 50))}}
-                                    animate={{ opacity: 1, y: 0, x: 0 }}
+                                    className={cn("relative group cursor-pointer", {
+                                        'animate-ping': projectClicked
+                                    })}
+                                    initial={{
+                                        opacity: 0,
+                                        y: (150 * (projectIndex + 75)),
+                                        x: (150 * (projectIndex + 50)),
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                        x: 0
+                                     }}
                                     transition={{ delay: 0.001 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
                                     whileHover={{
                                         rotate: 15,
                                         scale: 0.75,
                                         transition: { duration: 0.5 }
                                     }}
+                                    onClick={() => handleShowProjectInfo()}
                                 >
                                     <motion.div className="project-info opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out">
                                         <FiEye size={40} className="absolute top-6 right-6" />
@@ -100,7 +129,12 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
+
+            {/* specific project */}
+            {showProjectInfo && (
+                <ProjectInfo />
+            )}
         </div>
     );
 }
