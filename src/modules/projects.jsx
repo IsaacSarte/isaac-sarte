@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -11,7 +11,6 @@ import ArrowIcon from '@/assets/svgs/arrowLeftRight.svg';
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-
     const scroller = useRef();
     const projects = useRef();
 
@@ -26,10 +25,10 @@ const Projects = () => {
                 markers: false,
                 pin: true,
                 pinSpacing: true,
-                scrub: 1,
+                scrub: 0,
                 invalidateOnRefresh: true,
                 anticipatePin: 1,
-                snap: 1 / (skillSet.length - 1),
+                // snap: 1 / (skillSet.length - 1),
 
                 end: () => '+=' + window.innerWidth,
             },
@@ -44,6 +43,12 @@ const Projects = () => {
     for (let i = 0; i < projectList.length; i += 4) {
         projectGroups.push(projectList.slice(i, i + 4));
     }
+
+    const [showProjectInfo, setShowProjectInfo] = useState(false);
+
+    const handleShowProjectInfo = () => {
+        setShowProjectInfo(!showProjectInfo);
+    };
 
     return (
         <div className="overflow-hidden">
@@ -62,7 +67,7 @@ const Projects = () => {
                             {group.map((project, projectIndex) => (
                                 <motion.div
                                     key={project.id} 
-                                    className="relative group"
+                                    className="relative group cursor-pointer"
                                     initial={{ opacity: 0, y: (150 * (projectIndex + 75)), x: (150 * (projectIndex + 50))}}
                                     animate={{ opacity: 1, y: 0, x: 0 }}
                                     transition={{ delay: 0.001 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
