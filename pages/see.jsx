@@ -42,10 +42,18 @@ const See = () => {
                             initial={{ opacity: 1 }}
                             animate={{ y: binocularClicked ? -50 : 0 }}
                             transition={{ duration: 0.25 }}
+                            className="text-gray-400"
+                        >
+                                Click to See
+                        </motion.span>
+                        <motion.span
+                            initial={{ opacity: 1 }}
+                            animate={{ y: binocularClicked ? -50 : 0 }}
+                            transition={{ duration: 0.25 }}
                             className="text-8xl"
                         >
                                 Isaac Sarte
-                            </motion.span>
+                        </motion.span>
                         <motion.div
                             initial={{ opacity: 1 }}
                             animate={{ y: binocularClicked ? -50 : 0 }}
