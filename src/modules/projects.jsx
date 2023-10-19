@@ -115,7 +115,7 @@ const Projects = () => {
                                         alt={project.title}
                                         width={400} 
                                         height={400}
-                                        className="rounded-lg hover:rounded-full transition-all ease-in-out duration-[500ms]"
+                                        className="rounded-lg hover:rounded-[8rem] transition-all ease-in-out duration-[500ms]"
                                         priority
                                     />
                                 </motion.div>
