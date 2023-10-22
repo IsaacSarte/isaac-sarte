@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 import BinocularIcon from '@/assets/svgs/binocular.svg';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { AnimatePresence, motion } from 'framer-motion';
+import cn from 'classnames';
 import Projects from '@/modules/projects';
 import NavBar from '@/modules/nav/nav-bar';
+import Experiences from '@/modules/experiences';
 
 const See = () => {
     const [binocularClicked, setBinocularClicked] = useState(false);
     const [shouldRenderProjects, setShouldRenderProjects] = useState(false);
+
+    const [isExperiencesClicked, setIsExperiencesClicked] = useState(false);
+    const [isTechSkillsClicked, setIsTechSkillsClicked] = useState(false);
 
     const handleRenderProjects = () => {
         setBinocularClicked(!binocularClicked);
@@ -19,20 +24,36 @@ const See = () => {
 
     return (
         <AnimatePresence>
+            {/* navbar */}
+            {shouldRenderProjects ? (
+                <NavBar onHomeIconClick={handleRenderProjects}  />
+            ) : null}
+
+            {/* projects */}
             {!shouldRenderProjects ? (
                 <motion.div
                     initial={{ opacity: 1 }}
                     animate={{ opacity: binocularClicked ? 0 : 1 }}
                     transition={{ duration: 0.25 }}
-                    className="see-container w-screen h-screen flex items-center justify-between px-12 overflow-hidden"
+                    className={cn("see-container w-screen h-screen flex items-center justify-between px-12 overflow-hidden", {
+                            'move-right' : isExperiencesClicked,
+                            'move-left' : isTechSkillsClicked,
+                    })}
                 >
                     <motion.div
                         initial={{ opacity: 0 , x: -100, rotate: -90 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ type: 'spring', bounce: 0.25 }}
                     >
-                        <span className="text-xl font-semibold">Experiences</span>
+                        <span 
+                            className="cursor-pointer text-xl font-semibold" 
+                            onClick={() => setIsExperiencesClicked(!isExperiencesClicked)}
+                        >
+                            Experiences
+                        </span>
                     </motion.div>
+
+                    {/* binocular */}
                     <div className="font-semibold flex flex-col items-center gap-4">
                         <BinocularIcon
                             onClick={() => handleRenderProjects()}
@@ -65,22 +86,29 @@ const See = () => {
                             <FiInstagram size={30} color={'#9ca3af'} />
                         </motion.div>
                     </div>
+
                     <motion.div
                         initial={{ opacity: 0 , x: 100, rotate: 90 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ type: 'spring', bounce: 0.25 }}
                     >
-                        <span className="text-xl font-semibold">Tech Skills</span>
+                        <span
+                            className="cursor-pointer text-xl font-semibold"
+                            onClick={() => setIsTechSkillsClicked(!isTechSkillsClicked)}
+                        >
+                            Tech Skills
+                        </span>
                     </motion.div>
                 </motion.div>
             ) : (
                 <>
-                    <NavBar onHomeIconClick={handleRenderProjects}  />
                     <Projects />
                 </>
-
             )}
-            
+
+            {/* experiences */}
+
+            {/* skills */}
         </AnimatePresence>
     )
 }

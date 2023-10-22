@@ -30,6 +30,16 @@ body::-webkit-scrollbar{
     display: none;
 }
 
+.move-right {
+    transform: translateX(100vw);
+    transition: transform 0.5s ease-in-out;
+}
+
+.move-left {
+    transform: translateX(-100vw);
+    transition: transform 0.5s ease-in-out;
+}
+
 
 .binocular {
     transition: 0.25s ease-in forwards;

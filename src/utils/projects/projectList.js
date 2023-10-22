@@ -19,37 +19,37 @@ export const projectList = [
     {
         id: 3,
         image: proj3,
-        title: 'Momentum App',
+        title: 'Tic Tac Toe',
         link: ''
     },
     {
         id: 4,
         image: proj4,
-        title: 'Tic Tac Toe',
+        title: 'Momentum App',
         link: ''
     },
     {
         id: 5,
         image: proj1,
-        title: 'Project 5',
+        title: 'Blog App',
         link: ''
     },
     {
         id: 6,
         image: proj2,
-        title: 'Project 6',
+        title: 'Journal App',
         link: ''
     },
     {
         id: 7,
         image: proj3,
-        title: 'Project 7',
+        title: 'Banking App',
         link: ''
     },
     {
         id: 8,
         image: proj4,
-        title: 'Project 8',
+        title: 'Slack Clone',
         link: ''
     }
 ]
