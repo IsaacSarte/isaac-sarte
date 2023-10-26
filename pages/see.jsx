@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import cn from 'classnames';
 import Projects from '@/modules/projects';
 import NavBar from '@/modules/nav/nav-bar';
-import Experiences from '@/modules/experiences';
 
 const See = () => {
     const [binocularClicked, setBinocularClicked] = useState(false);
@@ -105,10 +104,6 @@ const See = () => {
                     <Projects />
                 </>
             )}
-
-            {/* experiences */}
-
-            {/* skills */}
         </AnimatePresence>
     )
 }
