@@ -1,9 +1,16 @@
 "use client"
-import React from 'react';
+import { AnimatePresence } from 'framer-motion';
+import React, { Suspense } from 'react';
 
 const Experiences = () => {
   return (
-    <div>Experiences</div>
+    <Suspense fallback={null}>
+        <AnimatePresence>
+            <div className="">
+                Experiences
+            </div>
+        </AnimatePresence>
+    </Suspense>
   )
 }
 

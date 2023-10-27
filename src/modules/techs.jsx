@@ -1,8 +1,16 @@
-import React from 'react';
+"use client"
+import { AnimatePresence } from 'framer-motion';
+import React, { Suspense } from 'react';
 
 const Techs = () => {
   return (
-    <div>Techs</div>
+    <Suspense fallback={null}>
+        <AnimatePresence>
+            <div className="">
+                Tech Skills
+            </div>
+        </AnimatePresence>
+    </Suspense>
   )
 }
 
