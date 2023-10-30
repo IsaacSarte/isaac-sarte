@@ -1,6 +1,6 @@
 "use client"
 import * as THREE from 'three'
-import { useRef, useState } from 'react'
+import { useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useIntersect, Image, ScrollControls, Scroll } from '@react-three/drei'
 import GoBack from './nav/go-back'
@@ -43,31 +43,33 @@ const Items = () => {
 
 const Experiences = () => (
     <div className="exp-body h-screen">
-        <GoBack />
-        <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]}>
-            <ScrollControls damping={1} pages={5}>
-                <Items />
-                <Scroll html style={{ width: '100%' }}>
-                    <span className="absolute top-[100vh] right-[20vw] text-[3.5em]" style={{ transform: `translate3d(0,-100%,0)` }}>
-                        Mosaic Solutions Inc
-                        <br />
-                        May 2022 - Present
-                    </span>
-                    <span className="absolute top-[180vh] left-[10vw] text-[2em]">Manila Fashion Festival (2022)</span>
-                    <span className="absolute top-[260vh] right-[10vw] text-[3em]">Vawchoo (2023)</span>
-                    <span className="absolute top-[350vh] left-[10vw] text-[2em]">
-                        JNCE Medical 
-                        <br />
-                        and Diagnostic Clinic (2023)
-                    </span>
-                    <span className="absolute top-[450vh] right-[10vw] text-[3em]">
-                        Magic Inc
-                        <br />
-                        June 2023 - Present
-                    </span>
-                </Scroll>
-            </ScrollControls>
-        </Canvas>
+        <Suspense fallback={null}>
+            <GoBack />
+            <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]}>
+                <ScrollControls damping={1} pages={5}>
+                    <Items />
+                    <Scroll html style={{ width: '100%' }}>
+                        <span className="absolute top-[100vh] right-[20vw] text-[3.5em]" style={{ transform: `translate3d(0,-100%,0)` }}>
+                            Mosaic Solutions Inc
+                            <br />
+                            May 2022 - Present
+                        </span>
+                        <span className="absolute top-[180vh] left-[10vw] text-[2em]">Manila Fashion Festival (2022)</span>
+                        <span className="absolute top-[260vh] right-[10vw] text-[3em]">Vawchoo (2023)</span>
+                        <span className="absolute top-[350vh] left-[10vw] text-[2em]">
+                            JNCE Medical 
+                            <br />
+                            and Diagnostic Clinic (2023)
+                        </span>
+                        <span className="absolute top-[450vh] right-[10vw] text-[3em]">
+                            Magic Inc
+                            <br />
+                            June 2023 - Present
+                        </span>
+                    </Scroll>
+                </ScrollControls>
+            </Canvas>
+        </Suspense>
     </div>
 )
 
