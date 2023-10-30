@@ -86,7 +86,6 @@ const ProjectInfo = ({ projDets }) => {
                                 alt={projDets.title}
                                 width={550}
                                 height={750}
-                                className="rounded-xl"
                                 priority
                             />
                         </motion.div>
