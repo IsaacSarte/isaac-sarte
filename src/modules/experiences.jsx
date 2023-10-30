@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useIntersect, Image, ScrollControls, Scroll } from '@react-three/drei'
+import GoBack from './nav/go-back'
 
 const Item = ({ url, scale, ...props }) => {
     const visible = useRef(false)
@@ -41,7 +42,8 @@ const Items = () => {
 }
 
 const Experiences = () => (
-    <div className="h-screen">
+    <div className="exp-body h-screen">
+        <GoBack />
         <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]}>
             <ScrollControls damping={1} pages={5}>
                 <Items />
