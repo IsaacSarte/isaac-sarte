@@ -18,7 +18,7 @@ const Item = ({ url, scale, ...props }) => {
 
     return (
         <group {...props}>
-            <Image ref={ref} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)} scale={scale} url={"/proj1.png"} />
+            <Image ref={ref} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)} scale={scale} url={"/images/proj1.png"} />
         </group>
     )
 }
