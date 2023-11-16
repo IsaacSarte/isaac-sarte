@@ -1,4 +1,4 @@
-import React from 'react'
+"use client"
 import { AnimatePresence } from 'framer-motion';
 import React, { Suspense } from 'react';
 import GoBack from './nav/go-back';
