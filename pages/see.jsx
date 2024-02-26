@@ -7,7 +7,7 @@ import cn from 'classnames';
 import Projects from '@/modules/projects';
 import NavBar from '@/modules/nav/nav-bar';
 import Experiences from '@/modules/experiences';
-import Techs from '@/modules/techs';
+import About from '@/modules/about';
 
 const See = () => {
     const [binocularClicked, setBinocularClicked] = useState(false);
@@ -17,8 +17,8 @@ const See = () => {
     const [expLinkClicked, setExpLinkClicked] = useState(false);
 
 
-    const [isTechSkillsClicked, setIsTechSkillsClicked] = useState(false);
-    const [techLinkClicked, setTechLinkClicked] = useState(false);
+    const [isAboutClicked, setIsAboutClicked] = useState(false);
+    const [aboutLinkClicked, setAboutLinkClicked] = useState(false);
 
     const handleRenderProjects = () => {
         setBinocularClicked(!binocularClicked);
@@ -34,10 +34,10 @@ const See = () => {
         }, 500);
     };
 
-    const handleRenderTechSkills = () => {
-        setTechLinkClicked(!techLinkClicked);
+    const handleRenderAbout = () => {
+        setAboutLinkClicked(!aboutLinkClicked);
         setTimeout(() => {
-            setIsTechSkillsClicked(!isTechSkillsClicked)
+            setIsAboutClicked(!isAboutClicked)
         }, 500);
     };
 
@@ -50,7 +50,7 @@ const See = () => {
                 ) : null}
 
                 {/* projects */}
-                {(isExperiencesClicked || isTechSkillsClicked) ? (
+                {(isExperiencesClicked || isAboutClicked) ? (
                     null
                 ) : (
                     <>
@@ -61,7 +61,7 @@ const See = () => {
                                 transition={{ duration: 0.25 }}
                                 className={cn("see-container w-screen h-screen flex items-center justify-between px-12 overflow-hidden", {
                                         'move-right' : expLinkClicked,
-                                        'move-left' : techLinkClicked,
+                                        'move-left' : aboutLinkClicked,
                                 })}
                             >
                                 <motion.div
@@ -69,12 +69,12 @@ const See = () => {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ type: 'spring', bounce: 0.25 }}
                                 >
-                                    <span 
+                                    <button
                                         className="cursor-pointer text-xl font-semibold" 
                                         onClick={() => handleRenderExperiences()}
                                     >
                                         Experiences
-                                    </span>
+                                    </button>
                                 </motion.div>
             
                                 {/* binocular */}
@@ -116,18 +116,16 @@ const See = () => {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ type: 'spring', bounce: 0.25 }}
                                 >
-                                    <span
+                                    <button
                                         className="cursor-pointer text-xl font-semibold"
-                                        onClick={() => handleRenderTechSkills()}
+                                        onClick={() => handleRenderAbout()}
                                     >
-                                        Tech Skills
-                                    </span>
+                                        About Me
+                                    </button>
                                 </motion.div>
                             </motion.div>
                         ) : (
-                            <>
-                                <Projects />
-                            </>
+                            <Projects />
                         )}
                     </>
                 )}
@@ -138,9 +136,9 @@ const See = () => {
                     <Experiences />
                 ) : null}
 
-                {/* tech skills */}
-                {isTechSkillsClicked ? (
-                    <Techs />
+                {/* About skills */}
+                {isAboutClicked ? (
+                    <About />
                 ) : null}
             </AnimatePresence>
         </Suspense>
