@@ -59,24 +59,25 @@ const See = () => {
                                 initial={{ opacity: 1 }}
                                 animate={{ opacity: binocularClicked ? 0 : 1 }}
                                 transition={{ duration: 0.25 }}
-                                className={cn("see-container w-screen h-screen flex items-center justify-between px-12 overflow-hidden", {
+                                className={cn("see-container relative w-screen h-screen flex flex-col md:flex-row items-center justify-between px-12 py-12 md:py-0 overflow-hidden", {
                                         'move-right' : expLinkClicked,
                                         'move-left' : aboutLinkClicked,
                                 })}
                             >
+                                {/* experiences nav */}
                                 <motion.div
-                                    initial={{ opacity: 0 , x: -100, rotate: -90 }}
+                                    initial={{ opacity: 0 , x: -100 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ type: 'spring', bounce: 0.25 }}
                                 >
                                     <button
-                                        className="cursor-pointer text-xl font-semibold" 
+                                        className="cursor-pointer absolute right-10 md:-rotate-90 md:relative md:right-0 md:text-2xl font-semibold whitespace-nowrap" 
                                         onClick={() => handleRenderExperiences()}
                                     >
                                         Experiences
                                     </button>
                                 </motion.div>
-            
+
                                 {/* binocular */}
                                 <div className="font-semibold flex flex-col items-center gap-4">
                                     <BinocularIcon
@@ -89,35 +90,36 @@ const See = () => {
                                         transition={{ duration: 0.25 }}
                                         className="text-gray-400"
                                     >
-                                            Click to See
+                                        Click to See
                                     </motion.span>
                                     <motion.span
                                         initial={{ opacity: 1 }}
                                         animate={{ y: binocularClicked ? -50 : 0 }}
                                         transition={{ duration: 0.25 }}
-                                        className="text-8xl"
+                                        className="text-4xl md:text-8xl"
                                     >
-                                            Isaac Sarte
+                                        Isaac Sarte
                                     </motion.span>
                                     <motion.div
                                         initial={{ opacity: 1 }}
                                         animate={{ y: binocularClicked ? -50 : 0 }}
                                         transition={{ duration: 0.25 }}
-                                        className="flex items-center gap-6 border border-gray-700 rounded-2xl mt-16 px-6 py-4"
+                                        className="flex items-center gap-6 border border-gray-700 rounded-2xl mt-10 md:mt-16 px-6 py-4"
                                     >
                                         <FiGithub size={30} color={'#9ca3af'} />
                                         <FiLinkedin size={30} color={'#9ca3af'} />
                                         <FiInstagram size={30} color={'#9ca3af'} />
                                     </motion.div>
                                 </div>
-            
+
+                                {/* about me nav */}
                                 <motion.div
-                                    initial={{ opacity: 0 , x: 100, rotate: 90 }}
+                                    initial={{ opacity: 0 , x: 100 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ type: 'spring', bounce: 0.25 }}
                                 >
                                     <button
-                                        className="cursor-pointer text-xl font-semibold"
+                                        className="cursor-pointer absolute left-10 md:rotate-90 md:relative md:left-0 md:text-2xl font-semibold whitespace-nowrap"
                                         onClick={() => handleRenderAbout()}
                                     >
                                         About Me
@@ -129,7 +131,6 @@ const See = () => {
                         )}
                     </>
                 )}
-                
 
                 {/* experiences */}
                 {isExperiencesClicked ? (
