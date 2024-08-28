@@ -90,13 +90,13 @@ const See = () => {
                                         transition={{ duration: 0.25 }}
                                         className="text-gray-400"
                                     >
-                                        Click to See
+                                        Click to See My Projects
                                     </motion.span>
                                     <motion.span
                                         initial={{ opacity: 1 }}
                                         animate={{ y: binocularClicked ? -50 : 0 }}
                                         transition={{ duration: 0.25 }}
-                                        className="text-4xl md:text-8xl"
+                                        className="text-4xl md:text-6xl lg:text-8xl text-center"
                                     >
                                         Isaac Sarte
                                     </motion.span>
