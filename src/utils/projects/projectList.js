@@ -12,44 +12,26 @@ export const projectList = [
     },
     {
         id: 2,
-        image: proj2,
-        title: 'Samsung Landing Page',
-        link: ''
-    },
-    {
-        id: 3,
-        image: proj3,
-        title: 'Tic Tac Toe',
-        link: ''
-    },
-    {
-        id: 4,
         image: proj4,
         title: 'Momentum App',
         link: ''
     },
     {
-        id: 5,
+        id: 3,
         image: proj1,
-        title: 'Blog App',
+        title: 'Link Shortener',
         link: ''
     },
     {
-        id: 6,
+        id: 4,
         image: proj2,
-        title: 'Journal App',
+        title: 'Step Tracker Mobile App',
         link: ''
     },
     {
-        id: 7,
+        id: 5,
         image: proj3,
-        title: 'Banking App',
+        title: 'Social Media Scheduler',
         link: ''
     },
-    {
-        id: 8,
-        image: proj4,
-        title: 'Slack Clone',
-        link: ''
-    }
 ]
