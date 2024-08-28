@@ -48,7 +48,7 @@ const Projects = () => {
 
     const [projectClicked, setProjectClicked] = useState(false);
     const [showProjectInfo, setShowProjectInfo] = useState(false);
-    const [projDets, setProjectDets] = useState({});
+    const [projectDets, setProjectDets] = useState({});
 
     const handleShowProjectInfo = () => {
         setProjectClicked(!projectClicked);
@@ -81,7 +81,7 @@ const Projects = () => {
                         >
                             {projectGroups.map((group) => (
                                 <section
-                                    key={group.id}
+                                    key={group.id + 1}
                                     ref={projects}
                                     className="projects px-12 overflow-hidden w-screen h-full flex items-center justify-between gap-6"
                                 >
@@ -101,7 +101,7 @@ const Projects = () => {
                                                 y: 0,
                                                 x: 0
                                             }}
-                                            transition={{ delay: 0.001 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
+                                            transition={{ delay: 0.01 * (projectIndex + 1.05), duration: 1.125, type: 'spring', bounce: 0.05 }}
                                             whileHover={{
                                                 rotate: 15,
                                                 scale: 0.75,
@@ -137,7 +137,7 @@ const Projects = () => {
 
                     {/* specific project */}
                     {showProjectInfo && (
-                        <ProjectInfo projDets={projDets} />
+                        <ProjectInfo projDets={projectDets} />
                     )}
                 </div>
             </AnimatePresence>
