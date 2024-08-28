@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import GoBack from './nav/go-back';
 import cn from 'classnames';
 import { experiencesList } from '@/utils/experiences/experiences';
+import Image from 'next/image';
 
 const Experiences = () => {
     const staggerDelay = 0.25;
@@ -23,7 +24,7 @@ const Experiences = () => {
                         <motion.div
                             key={index + 1}
                             className={cn(
-                                'bg-[#fbfbfb] text-black p-8',
+                                `relative bg-white bg-no-repeat text-black p-8`,
                                 {
                                     'col-span-2': index % 4 === 0 || index % 4 === 3,
                                     'col-span-1 flex flex-col': index % 4 !== 0 && index % 4 !== 3,
@@ -34,6 +35,12 @@ const Experiences = () => {
                             variants={variants}
                             transition={{ duration: 1, delay: index * staggerDelay, type: 'spring', bounce: 0.25 }}
                         >
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                className="absolute top-0 opacity-30 h-full w-full object-cover left-0"
+                                priority
+                            />
                             <div className="flex flex-col">
                                 <span className="text-2xl font-semibold">{item.title}</span>
                                 <span className="italic">{item.time}</span>
@@ -43,13 +50,13 @@ const Experiences = () => {
                                 <div className="flex justify-between mt-4">
                                     <div className="flex flex-col">
                                         <span>"{item.desc}"</span>
-                                        <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
+                                        <a href={item.link} target="_blank" rel="noreferrer" className="z-50">{item.link}</a>
                                     </div>
                                 </div>
                             ) : (
                                 <div className="flex flex-col mt-4">
                                     <span>"{item.desc}"</span>
-                                    <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
+                                    <a href={item.link} target="_blank" rel="noreferrer" className="z-50">{item.link}</a>
                                 </div>
                             )}
                         </motion.div>
