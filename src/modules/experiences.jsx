@@ -38,7 +38,7 @@ const Experiences = () => {
                             {index % 4 === 0 || index % 4 === 3 ? (
                                 <div className="flex justify-between mt-4">
                                     <div className="flex flex-col">
-                                        <span>Description</span>
+                                        <span>"{item.desc}"</span>
                                         <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
                                     </div>
                                     <span>Image</span>
@@ -50,7 +50,7 @@ const Experiences = () => {
                                     </div>
 
                                     <div className="flex flex-col mt-4">
-                                        <span>Description</span>
+                                        <span>"{item.desc}"</span>
                                         <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
                                     </div>
                                 </div>
