@@ -21,7 +21,7 @@ const Experiences = () => {
                 <div className="grid grid-cols-3 gap-4 px-12">
                     {experiencesList.map((item, index) => (
                         <motion.div
-                            key={index}
+                            key={index + 1}
                             className={cn(
                                 'bg-[#fbfbfb] text-black p-8',
                                 {
@@ -34,25 +34,22 @@ const Experiences = () => {
                             variants={variants}
                             transition={{ duration: 1, delay: index * staggerDelay, type: 'spring', bounce: 0.25 }}
                         >
-                            <span className="text-2xl">{item.title}</span>
+                            <div className="flex flex-col">
+                                <span className="text-2xl font-semibold">{item.title}</span>
+                                <span className="italic">{item.time}</span>
+                            </div>
+                            
                             {index % 4 === 0 || index % 4 === 3 ? (
                                 <div className="flex justify-between mt-4">
                                     <div className="flex flex-col">
                                         <span>"{item.desc}"</span>
                                         <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
                                     </div>
-                                    <span>Image</span>
                                 </div>
                             ) : (
-                                <div>
-                                    <div className="flex justify-center mt-4">
-                                        <span>Image</span>
-                                    </div>
-
-                                    <div className="flex flex-col mt-4">
-                                        <span>"{item.desc}"</span>
-                                        <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
-                                    </div>
+                                <div className="flex flex-col mt-4">
+                                    <span>"{item.desc}"</span>
+                                    <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
                                 </div>
                             )}
                         </motion.div>
