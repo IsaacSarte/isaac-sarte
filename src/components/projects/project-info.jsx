@@ -41,6 +41,8 @@ const ProjectInfo = ({ projDets }) => {
                                     {projDets.title}
                             </motion.span>
                             <motion.a
+                                href={projDets.link}
+                                target="_blank"
                                 initial={{ opacity: 0, y: 25 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 1.125}}
