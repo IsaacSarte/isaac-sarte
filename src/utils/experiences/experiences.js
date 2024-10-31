@@ -6,7 +6,7 @@ import exp5 from '../../../public/images/exp5.png';
 import exp6 from '../../../public/images/exp6.png';
 
 export const experiencesList = [
-    { id: 0, title: 'Mosaic Solutions (2022-2024)', image: exp1, time: "Full Time", desc: "Stop revenue leakages by capturing your tenants' complete sales data.", link: 'https://www.mosaic-solutions.com/products/tenant-management-system/' },
+    { id: 0, title: 'Mosaic Solutions (2022-2023)', image: exp1, time: "Full Time", desc: "Stop revenue leakages by capturing your tenants' complete sales data.", link: 'https://www.mosaic-solutions.com/products/tenant-management-system/' },
     { id: 1, title: 'Manila Fashion Festival (2023)', image: exp2, time: "Freelance", desc: "Taking Filipino Fashion to the Global Scene", link: 'https://mff-official.com/' },
     { id: 2, title: 'Vawchoo (2023)', image: exp3, time: "Freelance", desc: "Your one-stop beauty hub", link: 'https://vawchoo.com/' },
     { id: 3, title: 'JNCE Medical and Diagnostic Clinic (2022)', image: exp4, time: "Freelance", desc: "Envisions to become a high-standard provider of pre-employment medical services", link: 'https://jnce-landing.vercel.app/' },
