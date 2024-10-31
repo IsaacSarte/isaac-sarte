@@ -1,7 +1,7 @@
 import proj1 from '../../../public/images/proj1.png';
 import proj2 from '../../../public/images/proj2.png';
 import proj3 from '../../../public/images/proj3.png';
-import proj4 from '../../../public/images/proj4.png';
+import projMom from '../../../public/images/proj-mom.png';
 import linkShortener from '../../../public/images/link-shortener.png';
 
 export const projectList = [
@@ -13,9 +13,9 @@ export const projectList = [
     },
     {
         id: 2,
-        image: proj4,
+        image: projMom,
         title: 'Momentum App',
-        link: ''
+        link: 'https://momentum-app-virid.vercel.app/'
     },
     {
         id: 3,

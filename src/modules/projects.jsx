@@ -88,7 +88,7 @@ const Projects = () => {
                                     {group.map((project, projectIndex) => (
                                         <motion.div
                                             key={project.id} 
-                                            className={cn("relative group cursor-pointer", {
+                                            className={cn("relative group cursor-pointer border border-gray-500 border-opacity-40", {
                                                 'animate-ping': projectClicked
                                             })}
                                             initial={{
