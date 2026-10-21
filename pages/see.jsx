@@ -1,7 +1,7 @@
 "use client";
 import React, { Suspense, useState } from "react";
 import BinocularIcon from "@/assets/svgs/binocular.svg";
-import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { FiGithub, FiInstagram } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import cn from "classnames";
 import Projects from "@/modules/projects";
@@ -106,9 +106,24 @@ const See = () => {
                     transition={{ duration: 0.25 }}
                     className="flex items-center gap-6 border border-gray-700 rounded-2xl mt-10 md:mt-16 px-6 py-4"
                   >
-                    <FiGithub size={30} color={"#9ca3af"} />
-                    <FiLinkedin size={30} color={"#9ca3af"} />
-                    <FiInstagram size={30} color={"#9ca3af"} />
+                    <a
+                      href="https://github.com/IsaacSarte"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub profile"
+                      className="hover:scale-105 transition-transform"
+                    >
+                      <FiGithub size={30} color={"#9ca3af"} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/isaac_sarte/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram profile"
+                      className="hover:scale-105 transition-transform"
+                    >
+                      <FiInstagram size={30} color={"#9ca3af"} />
+                    </a>
                   </motion.div>
                 </div>
 
