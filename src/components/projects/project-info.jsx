@@ -10,8 +10,8 @@ const ProjectInfo = ({ projDets }) => {
     return (
         <Suspense fallback={null}>
             <AnimatePresence>
-                <div className="overflow-hidden h-screen w-screen px-12">
-                    <div className="flex items-center justify-center gap-14 mt-[10vh]">
+                <div className="overflow-hidden min-h-screen md:h-screen w-screen px-5 md:px-12 pb-10 md:pb-0">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-14 mt-[14vh] md:mt-[10vh]">
                         <div className="flex flex-col items-center gap-4">
                             <div className="mb-8 flex items-center justify-center gap-4">
                                 <motion.div
@@ -36,7 +36,7 @@ const ProjectInfo = ({ projDets }) => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 1.125}}
-                                className="font-semibold text-[4rem]"
+                                className="font-semibold text-4xl sm:text-5xl md:text-[4rem] text-center"
                             >
                                     {projDets.title}
                             </motion.span>
@@ -50,15 +50,15 @@ const ProjectInfo = ({ projDets }) => {
                             >
                                 Visit Page
                             </motion.a>
-                            <div className="mt-8 flex items-center justify-center gap-2 text-2xl">
-                                <div className="border px-8 py-4 rounded-xl">
+                            <div className="mt-4 md:mt-8 flex flex-wrap items-center justify-center gap-2 text-lg md:text-2xl">
+                                <div className="border px-4 py-2 md:px-8 md:py-4 rounded-xl">
                                     Tech
                                 </div>
                                 <motion.div
                                     initial={{ opacity: 0, x: -25 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 1, type: 'spring', bounce: 0.25 }}
-                                    className="border px-8 py-4 rounded-xl"
+                                    className="border px-4 py-2 md:px-8 md:py-4 rounded-xl"
                                 >
                                     Used
                                 </motion.div>
@@ -66,15 +66,15 @@ const ProjectInfo = ({ projDets }) => {
                                     initial={{ opacity: 0, x: -30 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 1.075, type: 'spring', bounce: 0.25 }}
-                                    className="border px-8 py-4 rounded-xl">
-                                    <AiOutlineDoubleRight size={32.5} />
+                                    className="border px-4 py-2 md:px-8 md:py-4 rounded-xl">
+                                    <AiOutlineDoubleRight className="w-5 h-5 md:w-8 md:h-8" />
                                 </motion.div>
                                 <motion.div
                                     initial={{ opacity: 0, x: -35 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 1.125, type: 'spring', bounce: 0.25 }}
-                                    className="border px-8 py-4 rounded-xl">
-                                    <RiCss3Line size={32.5} />
+                                    className="border px-4 py-2 md:px-8 md:py-4 rounded-xl">
+                                    {projDets.tech_used}
                                 </motion.div>
                             </div>
                         </div>
@@ -89,6 +89,7 @@ const ProjectInfo = ({ projDets }) => {
                                 width={550}
                                 height={750}
                                 priority
+                                className="w-[75vw] max-w-[550px] md:w-[550px] h-auto aspect-[550/750]"
                             />
                         </motion.div>
                     </div>

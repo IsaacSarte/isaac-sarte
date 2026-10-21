@@ -13,7 +13,7 @@ const GoBack = () => {
                 initial={{ visibility: 0 }}
                 animate={{ visibility: 1 }}
                 transition={{ type: 'spring', bounce: 0.25 }}
-                className="p-12 flex items-center gap-2"
+                className="px-5 py-8 md:p-12 flex items-center gap-2"
                 onClick={() => handleGoBackClick()}
             >
                 <ArrowLeft className="arrow-left cursor-pointer hover:scale-125"/>

@@ -19,15 +19,17 @@ const Experiences = () => {
         <Suspense fallback={null}>
             <AnimatePresence>
                 <GoBack />
-                <div className="grid grid-cols-3 gap-4 px-12">
-                    {experiencesList.map((item, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5 md:px-12 pb-10 overflow-x-clip">
+                    {experiencesList.map((item, index) => {
+                        const isWide = index === 0;
+                        return (
                         <motion.div
                             key={index + 1}
                             className={cn(
-                                `relative bg-white bg-no-repeat text-black p-8`,
+                                `relative bg-white bg-no-repeat text-black p-5 md:p-8`,
                                 {
-                                    'col-span-2': index % 4 === 0 || index % 4 === 3,
-                                    'col-span-1 flex flex-col': index % 4 !== 0 && index % 4 !== 3,
+                                    'md:col-span-2 lg:col-span-2': isWide,
+                                    'col-span-1 flex flex-col': !isWide,
                                 }
                             )}
                             initial={index % 2 === 0 ? 'hidden' : 'hiddenOdd'}
@@ -42,25 +44,17 @@ const Experiences = () => {
                                 priority
                             />
                             <div className="flex flex-col">
-                                <span className="text-2xl font-semibold">{item.title}</span>
+                                <span className="text-xl md:text-2xl font-semibold">{item.title}</span>
                                 <span className="italic">{item.time}</span>
                             </div>
                             
-                            {index % 4 === 0 || index % 4 === 3 ? (
-                                <div className="flex justify-between mt-4">
-                                    <div className="flex flex-col">
-                                        <span>"{item.desc}"</span>
-                                        <a href={item.link} target="_blank" rel="noreferrer" className="z-50">{item.link}</a>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="flex flex-col mt-4">
-                                    <span>"{item.desc}"</span>
-                                    <a href={item.link} target="_blank" rel="noreferrer" className="z-50">{item.link}</a>
-                                </div>
-                            )}
+                            <div className="flex flex-col mt-4">
+                                <span>"{item.desc}"</span>
+                                <a href={item.link} target="_blank" rel="noreferrer" className="z-50 break-all">{item.link}</a>
+                            </div>
                         </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
             </AnimatePresence>
         </Suspense>

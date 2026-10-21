@@ -18,7 +18,7 @@ const NavBar = ({ onHomeIconClick }) => {
                     className="cursor-pointer hover:scale-125" 
                     onClick={() => { onHomeIconClick(); setIsHomeClicked(!isHomeClicked); }} 
                 />
-                <span className="text-xl">Contact Me</span>
+                <a href="mailto:sarteisaac09@gmail.com" className="text-xl">Contact Me</a>
             </motion.div>
         </AnimatePresence>
     )
